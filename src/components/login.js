@@ -14,6 +14,9 @@ class Login extends React.Component {
             password:"",
             uid:"",
             level:"",
+            destination: "",
+            pace: "",
+            deadline: "",
             success: false
         };
         this.onChangeInput = this.onChangeInput.bind(this);
@@ -50,6 +53,9 @@ class Login extends React.Component {
             const doc = await cityRef.get();
             console.log(doc.data().CurrentLevel);
             this.setState({level: doc.data().CurrentLevel});
+            this.setState({destination: doc.data().DestinationLevel});
+            this.setState({pace : doc.data().Pace});
+            this.setState({deadline: doc.data().deadline});
             this.setState({status: "profile"});
         }
     }
@@ -109,7 +115,7 @@ class Login extends React.Component {
         }
         if(this.state.status === "profile")
         {
-            return <Profile uid={this.state.uid} level ={this.state.level} />
+            return <Profile uid={this.state.uid} level ={this.state.level} destination = {this.state.destination} pace= {this.state.pace} deadline={this.state.deadline} />
         }
     }
     render() {

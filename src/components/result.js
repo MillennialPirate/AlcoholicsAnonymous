@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import {db} from '../firebase/firebase';
+import Home from './Home';
 class Result extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +10,8 @@ class Result extends React.Component {
             uid: this.props.uid,
             level: this.props.level,
             destination: "",
-            deadline:""
+            deadline:"",
+            pace: "",
         };
         this.onChangeInput = this.onChangeInput.bind(this);
         this.save = this.save.bind(this);
@@ -18,11 +20,110 @@ class Result extends React.Component {
     {
         e.preventDefault();
         console.log("Clicked");
+        
+        const today = new Date();
+        const dead = new Date(this.state.deadline);
+        const dif1 = dead.getTime() - today.getTime();
+        const dif = Math.round(dif1/(1000*3600*24));
+        if(this.state.level === "Going good")
+        {
+            this.setState({status: "Home"});
+        }
+        else if(this.state.level === "Medium Risk")
+        {
+            
+            if(dif > 50)
+            {
+                this.setState({pace: "Slow"});
+                console.log("Slow");
+            }
+            else if(dif > 30)
+            {
+                this.setState({pace: "Medium"});
+                console.log("Medium");
+            }
+            else if(dif > 21)
+            {
+                this.setState({pace: "Fast"});
+                console.log("FAst")
+            }
+            else 
+            {
+                window.alert("Please select a gap of 21 days");
+
+                return;
+            }
+        }
+        else if(this.state.level === "High Risk")
+        {
+            if(this.state.destination === "Light")
+            {
+                this.setState({pace: "Fast"});
+            }
+            else 
+            {
+                if(dif > 50)
+                {
+                    this.setState({pace: "Slow"});
+                }
+                else if(dif > 30)
+                {
+                    this.setState({pace: "Medium"});
+                }
+                else if(dif > 21)
+                {
+                    this.setState({pace: "Fast"});
+                }
+                else 
+                {
+                    window.alert("Please select a gap of 21 days");
+                }
+            }
+        }
+        console.log(this.state);
+        if(this.state.pace === "Slow")
+        {
+            console.log("Slow");
+            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+                Task1: "Go for morning walks everyday",
+                Task2: "Try out yoga",
+                Task3: "Find a community",
+                Task4: "Find a new favourite non alcoholic drink",
+                Task5: "Rediscover hobies",
+                Task6: "Try taking gaps between alcohol intake",
+                Task7: "Maintain a log book or a journal"
+              });
+              
+        }
+        else if(this.state.pace === "Medium")
+        {
+            console.log("Medium");
+            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+                Task1: "Go for morning walks everyday",
+                Task2: "Try out yoga",
+                Task3: "Find a community",
+                Task4: "Find a new favourite non alcoholic drink",
+                Task5: "Maintain a log book or a journal"
+              });
+        }
+        else 
+        {
+            console.log("Fast");
+            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+                Task1: "Go for morning walks everyday",
+                Task2: "Try out yoga",
+                Task3: "Find a community",
+                Task4: "Maintain a log book or a journal"
+              });
+        }
         const res = await db.collection(this.state.uid).doc('Information').set({
             CurrentLevel: this.state.level,
             deadline : this.state.deadline,
-            DestinationLevel: this.state.destination
+            DestinationLevel: this.state.destination,
+            Pace: this.state.pace
           });
+        window.alert("Account created! Please login again to follow the next steps");
+        this.setState({status: "Home"});
     }
     onChangeInput(e)
     {
@@ -41,9 +142,10 @@ class Result extends React.Component {
                     </nav>
                     <h1 style={{ color: "green" }}>{this.state.level}</h1>
                     <div style={{paddingTop:"5%"}}></div>
-                    <div class="container">
+                    <div class="container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"2%"}}></div>
-                        <h3>Congrats!! You have reached the green stage which indicates your discipline in life. Keep up the good work!!</h3>
+                        <h3>Congrats!! You have reached the green stage which indicates your discipline in life. Keep up the good work!! You need not take any of our plans.</h3>
+                        <button class = "button1" onClick ={(e) => {this.save(e)}}>Return</button>
                         <div style={{paddingTop:"2%"}}></div>
                     </div>
                 </div>
@@ -59,7 +161,7 @@ class Result extends React.Component {
                         <div style={{paddingTop:"5%"}}></div>
                     <div class = "container">
                         <h1>Which level do you want to reach?</h1>
-                        <p>Selected option: Light</p>
+                        <p>Selected option: Light (Default)</p>
                     </div>
                     <div style={{paddingTop:"2%"}}></div>
                     <div class = "container">
@@ -98,6 +200,10 @@ class Result extends React.Component {
                     </div>
                 </div>
             }
+        }
+        if(this.state.status === "Home")
+        {
+            return <Home/>
         }
     }
     render() {
