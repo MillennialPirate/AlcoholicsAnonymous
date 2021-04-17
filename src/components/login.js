@@ -27,14 +27,21 @@ class Login extends React.Component {
     {
         e.preventDefault();
         auth.signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // Signed in
             var user = userCredential.user.uid;
             // ...
             this.setState({success: true});
             this.setState({uid: user});
             
-           
+            const cityRef = db.collection(this.state.uid).doc('Information');
+            const doc = await cityRef.get();
+            console.log(doc.data().CurrentLevel);
+            this.setState({level: doc.data().CurrentLevel});
+            this.setState({destination: doc.data().DestinationLevel});
+            this.setState({pace : doc.data().Pace});
+            this.setState({deadline: doc.data().deadline});
+            this.setState({status: "profile"});
         })
         .catch((error) => {
             if (
@@ -47,17 +54,7 @@ class Login extends React.Component {
               }
         });
 
-        if(this.state.success === true)
-        {
-            const cityRef = db.collection(this.state.uid).doc('Information');
-            const doc = await cityRef.get();
-            console.log(doc.data().CurrentLevel);
-            this.setState({level: doc.data().CurrentLevel});
-            this.setState({destination: doc.data().DestinationLevel});
-            this.setState({pace : doc.data().Pace});
-            this.setState({deadline: doc.data().deadline});
-            this.setState({status: "profile"});
-        }
+        
     }
     
     onChangeInput(e)

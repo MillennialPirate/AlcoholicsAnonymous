@@ -25,6 +25,9 @@ class Result extends React.Component {
         const dead = new Date(this.state.deadline);
         const dif1 = dead.getTime() - today.getTime();
         const dif = Math.round(dif1/(1000*3600*24));
+        console.log(dif);
+        console.log(this.state);
+        var x = "Slow";
         if(this.state.level === "Going good")
         {
             this.setState({status: "Home"});
@@ -34,18 +37,15 @@ class Result extends React.Component {
             
             if(dif > 50)
             {
-                this.setState({pace: "Slow"});
-                console.log("Slow");
+                x = "Slow";
             }
             else if(dif > 30)
             {
-                this.setState({pace: "Medium"});
-                console.log("Medium");
+                x = "Medium";
             }
             else if(dif > 21)
             {
-                this.setState({pace: "Fast"});
-                console.log("FAst")
+                x = "Fast";
             }
             else 
             {
@@ -58,29 +58,34 @@ class Result extends React.Component {
         {
             if(this.state.destination === "Light")
             {
-                this.setState({pace: "Fast"});
+                x = "Fast";
             }
             else 
             {
+                console.log("Hello");
                 if(dif > 50)
                 {
-                    this.setState({pace: "Slow"});
+                    x = "Slow";
                 }
                 else if(dif > 30)
                 {
-                    this.setState({pace: "Medium"});
+                    x = "Medium";
                 }
                 else if(dif > 21)
                 {
-                    this.setState({pace: "Fast"});
+                    x = "Fast";
                 }
                 else 
                 {
                     window.alert("Please select a gap of 21 days");
+                    return;
                 }
             }
         }
-        console.log(this.state);
+        console.log(x);
+        this.setState({pace: x});
+        this.state.pace = x;
+        console.log(this.state.pace);
         if(this.state.pace === "Slow")
         {
             console.log("Slow");

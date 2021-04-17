@@ -128,21 +128,21 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer1" id="a" class="answer" />
-                                        <label for="a" id="a_text">Every week</label>
+                                        <label for="a" >Every week</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer1" id="b" class="answer" />
-                                        <label for="b" id="b_text">Twice a month or more</label>
+                                        <label for="b" >Twice a month or more</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer1" id="c" class="answer" />
-                                        <label for="c" id="c_text">Once a month or more</label>
+                                        <label for="c" >Once a month or more</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="answer1" id="d" class="answer" />
-                                        <label for="c" id="c_text">Never</label>
+                                        <label for="c" >Never</label>
                                     </li>
                                 </ul>
                             </div>
@@ -169,21 +169,21 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer2" id="a" class="answer" />
-                                        <label for="a" id="a_text">1 to 3</label>
+                                        <label for="a" >1 to 3</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer2" id="b" class="answer" />
-                                        <label for="b" id="b_text">3 to 6</label>
+                                        <label for="b" >3 to 6</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer2" id="c" class="answer" />
-                                        <label for="c" id="c_text">6 to 9</label>
+                                        <label for="c" >6 to 9</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="answer2" id="d" class="answer" />
-                                        <label for="c" id="c_text">Above 10</label>
+                                        <label for="c" >Above 10</label>
                                     </li>
                                 </ul>
                             </div>
@@ -210,21 +210,21 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer3" id="a" class="answer" />
-                                        <label for="a" id="a_text">18-30</label>
+                                        <label for="a" >18-30</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer3" id="b" class="answer" />
-                                        <label for="b" id="b_text">30-50</label>
+                                        <label for="b" >30-50</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer3" id="c" class="answer" />
-                                        <label for="c" id="c_text">50-70</label>
+                                        <label for="c" >50-70</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="answer3" id="d" class="answer" />
-                                        <label for="c" id="c_text">70+</label>
+                                        <label for="c" >70+</label>
                                     </li>
                                 </ul>
                             </div>
@@ -251,17 +251,17 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer4" id="a" class="answer" />
-                                        <label for="a" id="a_text">Male</label>
+                                        <label for="a" >Male</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer4" id="b" class="answer" />
-                                        <label for="b" id="b_text">Female</label>
+                                        <label for="b" >Female</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer4" id="c" class="answer" />
-                                        <label for="c" id="c_text">Other</label>
+                                        <label for="c" >Other</label>
                                     </li>
                                 </ul>
                             </div>
@@ -288,21 +288,21 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer5" id="a" class="answer" />
-                                        <label for="a" id="a_text">Never</label>
+                                        <label for="a" >Never</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer5" id="b" class="answer" />
-                                        <label for="b" id="b_text">Years before</label>
+                                        <label for="b" >Years before</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer5" id="c" class="answer" />
-                                        <label for="c" id="c_text">Months before</label>
+                                        <label for="c" >Months before</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="answer5" id="d" class="answer" />
-                                        <label for="c" id="c_text">Weeks before</label>
+                                        <label for="c" >Weeks before</label>
                                     </li>
                                 </ul>
                             </div>
