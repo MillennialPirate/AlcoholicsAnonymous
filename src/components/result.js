@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import {db} from '../firebase/firebase';
 import Home from './Home';
+import Happy from './happy.svg';
 class Result extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +16,12 @@ class Result extends React.Component {
         };
         this.onChangeInput = this.onChangeInput.bind(this);
         this.save = this.save.bind(this);
+        this.return = this.return.bind(this);
+    }
+    return(e)
+    {
+        e.preventDefault();
+        this.setState({status:"Home"});
     }
     async save(e)
     {
@@ -89,37 +96,61 @@ class Result extends React.Component {
         if(this.state.pace === "Slow")
         {
             console.log("Slow");
-            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+            const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
-                Task2: "Try out yoga",
-                Task3: "Find a community",
-                Task4: "Find a new favourite non alcoholic drink",
-                Task5: "Rediscover hobies",
-                Task6: "Try taking gaps between alcohol intake",
-                Task7: "Maintain a log book or a journal"
               });
+            const res2 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('2').set({
+            Task2: "Try out yoga",
+            });
+            const res3 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('3').set({
+            Task3: "Find a community",
+            });
+            const res4 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('4').set({
+            Task4: "Find a new favourite non alcoholic drink",
+            });
+            const res5 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('5').set({
+            Task5: "Rediscover hobies",
+            });
+            const res6 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('6').set({
+            Task6: "Try taking gaps between alcohol intake",
+            });
+            const res7 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('7').set({
+            Task7: "Maintain a log book or a journal"
+            });
+
               
         }
         else if(this.state.pace === "Medium")
         {
             console.log("Medium");
-            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+            const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
-                Task2: "Try out yoga",
-                Task3: "Find a community",
-                Task4: "Find a new favourite non alcoholic drink",
-                Task5: "Maintain a log book or a journal"
               });
+            const res2 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('2').set({
+            Task2: "Try out yoga",
+            });
+            const res3 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('3').set({
+            Task3: "Find a community",
+            });
+            const res4 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('4').set({
+            Task4: "Find a new favourite non alcoholic drink",
+            });
+            const res5 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('5').set({
+            Task5: "Rediscover hobies",
+            });
         }
         else 
         {
             console.log("Fast");
-            const res1 = await db.collection(this.state.uid).doc('Activities').set({
+            const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
-                Task2: "Try out yoga",
-                Task3: "Find a community",
-                Task4: "Maintain a log book or a journal"
               });
+            const res2 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('2').set({
+            Task2: "Try out yoga",
+            });
+            const res3 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('3').set({
+            Task3: "Find a community",
+            });
         }
         const res = await db.collection(this.state.uid).doc('Information').set({
             CurrentLevel: this.state.level,
@@ -146,11 +177,12 @@ class Result extends React.Component {
                         <div style={{ paddingLeft: "2%" }}><a class="navbar-brand" href="#"><div style={{ fontSize: "1.5rem", color: "black", fontWeight: "bolder" }}><span style={{ color: "#00308F" }}>Alcoholics</span>Anonymous</div></a></div>
                     </nav>
                     <h1 style={{ color: "green" }}>{this.state.level}</h1>
-                    <div style={{paddingTop:"5%"}}></div>
+                    <img src = {Happy} style={{width:"400px", height:"400px"}}/>
+                    <div style={{paddingTop:"2%"}}></div>
                     <div class="container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"2%"}}></div>
                         <h3>Congrats!! You have reached the green stage which indicates your discipline in life. Keep up the good work!! You need not take any of our plans.</h3>
-                        <button class = "button1" onClick ={(e) => {this.save(e)}}>Return</button>
+                        <button class = "button1" onClick ={(e) => {this.return(e)}}>Return</button>
                         <div style={{paddingTop:"2%"}}></div>
                     </div>
                 </div>

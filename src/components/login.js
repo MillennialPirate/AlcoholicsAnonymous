@@ -112,7 +112,7 @@ class Login extends React.Component {
         }
         if(this.state.status === "profile")
         {
-            return <Profile uid={this.state.uid} level ={this.state.level} destination = {this.state.destination} pace= {this.state.pace} deadline={this.state.deadline} />
+            return <Profile status = "result" uid={this.state.uid} level ={this.state.level} destination = {this.state.destination} pace= {this.state.pace} deadline={this.state.deadline} />
         }
     }
     render() {
