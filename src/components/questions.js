@@ -50,19 +50,19 @@ class Questions extends React.Component {
         }
         if(name === "answer2")
         {
-            if(value === "a")
+            if(value === "a1")
             {
                 this.setState({units: 2});
             }
-            else if(value === "b")
+            else if(value === "b1")
             {
                 this.setState({units: 4});
             }
-            else if(value === "c")
+            else if(value === "c1")
             {
                 this.setState({units: 8});
             }
-            else if(value === "d")
+            else if(value === "d1")
             {
                 this.setState({units: 10});
             }
@@ -71,7 +71,7 @@ class Questions extends React.Component {
         this.setState({totalUnits: x});
         if(name === "answer3")
         {
-            if(value === "a")
+            if(value === "a2")
             {
                 this.setState({age: 25});
             }
@@ -120,7 +120,7 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container"  >
-                    <h1>Answer the following questionnaire</h1>
+                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
                     <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
                         <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
                             <div class="quiz-header">
@@ -161,29 +161,29 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                    <h1>Answer the following questionnaire</h1>
+                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
                     <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
                         <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">How many units of alcohol do you drink in a typical day when you are drinking?</h2>
                                 <ul >
                                     <li>
-                                        <input type="radio" name="answer2" id="a" class="answer" />
-                                        <label for="a" >1 to 3</label>
+                                        <input type="radio" name="answer2" id="a1" class="answer" />
+                                        <label for="a1" >1 to 3</label>
                                     </li>
 
                                     <li>
-                                        <input type="radio" name="answer2" id="b" class="answer" />
-                                        <label for="b" >3 to 6</label>
+                                        <input type="radio" name="answer2" id="b1" class="answer" />
+                                        <label for="b1" >3 to 6</label>
                                     </li>
 
                                     <li>
-                                        <input type="radio" name="answer2" id="c" class="answer" />
-                                        <label for="c" >6 to 9</label>
+                                        <input type="radio" name="answer2" id="c1" class="answer" />
+                                        <label for="c1" >6 to 9</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="answer2" id="d" class="answer" />
-                                        <label for="c" >Above 10</label>
+                                        <input type="radio" name="answer2" id="d1" class="answer" />
+                                        <label for="d1" >Above 10</label>
                                     </li>
                                 </ul>
                             </div>
@@ -202,29 +202,29 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                    <h1>Answer the following questionnaire</h1>
+                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
                     <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
                         <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">Enter your age group:</h2>
                                 <ul >
                                     <li>
-                                        <input type="radio" name="answer3" id="a" class="answer" />
-                                        <label for="a" >18-30</label>
+                                        <input type="radio" name="answer3" id="a2" class="answer" />
+                                        <label for="a2" >18-30</label>
                                     </li>
 
                                     <li>
-                                        <input type="radio" name="answer3" id="b" class="answer" />
-                                        <label for="b" >30-50</label>
+                                        <input type="radio" name="answer3" id="b2" class="answer" />
+                                        <label for="b2" >30-50</label>
                                     </li>
 
                                     <li>
-                                        <input type="radio" name="answer3" id="c" class="answer" />
-                                        <label for="c" >50-70</label>
+                                        <input type="radio" name="answer3" id="c2" class="answer" />
+                                        <label for="c2" >50-70</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="answer3" id="d" class="answer" />
-                                        <label for="c" >70+</label>
+                                        <input type="radio" name="answer3" id="d2" class="answer" />
+                                        <label for="d2" >70+</label>
                                     </li>
                                 </ul>
                             </div>
@@ -243,7 +243,7 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                    <h1>Answer the following questionnaire</h1>
+                    <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
                     <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
                         <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
                             <div class="quiz-header">
@@ -251,17 +251,17 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer4" id="a" class="answer" />
-                                        <label for="a" >Male</label>
+                                        <label for="a3" >Male</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer4" id="b" class="answer" />
-                                        <label for="b" >Female</label>
+                                        <label for="b3" >Female</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer4" id="c" class="answer" />
-                                        <label for="c" >Other</label>
+                                        <label for="c3" >Other</label>
                                     </li>
                                 </ul>
                             </div>
@@ -280,7 +280,7 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                    <h1>Answer the following questionnaire</h1>
+                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
                     <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
                         <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
                             <div class="quiz-header">
@@ -288,21 +288,21 @@ class Questions extends React.Component {
                                 <ul >
                                     <li>
                                         <input type="radio" name="answer5" id="a" class="answer" />
-                                        <label for="a" >Never</label>
+                                        <label for="a4" >Never</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer5" id="b" class="answer" />
-                                        <label for="b" >Years before</label>
+                                        <label for="b4" >Years before</label>
                                     </li>
 
                                     <li>
                                         <input type="radio" name="answer5" id="c" class="answer" />
-                                        <label for="c" >Months before</label>
+                                        <label for="c4" >Months before</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="answer5" id="d" class="answer" />
-                                        <label for="c" >Weeks before</label>
+                                        <label for="d4" >Weeks before</label>
                                     </li>
                                 </ul>
                             </div>

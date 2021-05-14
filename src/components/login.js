@@ -5,6 +5,7 @@ import {auth} from '../firebase/firebase';
 import {db} from '../firebase/firebase';
 import Register from './register';
 import Profile from './profile';
+import Home from './Home';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -22,6 +23,12 @@ class Login extends React.Component {
         this.onChangeInput = this.onChangeInput.bind(this);
         this.changeRegister = this.changeRegister.bind(this);
         this.login = this.login.bind(this);
+        this.goBack = this.goBack.bind(this);
+    }
+    goBack(e)
+    {
+        e.preventDefault();
+        this.setState({status: "home"});
     }
     async login(e)
     {
@@ -82,6 +89,7 @@ class Login extends React.Component {
                     <div class = "row">
                         <div class = "col-lg-6 col-md-12">
                             <img src = {Log}/>
+                         
                         </div>
                         <div class = "col-lg-6 col-md-12">
                         <main class="form-signin">
@@ -98,7 +106,7 @@ class Login extends React.Component {
                         </div>
                         <p class="mt-5 mb-3 ">Don't have an account yet?<a href="#" onClick = {(e) => {this.changeRegister(e)}}>Click here!</a></p>
                         <button class="button1" type="submit" onClick = {(e)=>{this.login(e)}}>Sign in</button>
-                       
+                        <button class="button1" type="submit" onClick = {(e)=>{this.goBack(e)}}>Go Back!</button>
                     </form>
                 </main>
                         </div>
@@ -113,6 +121,10 @@ class Login extends React.Component {
         if(this.state.status === "profile")
         {
             return <Profile status = "result" uid={this.state.uid} level ={this.state.level} destination = {this.state.destination} pace= {this.state.pace} deadline={this.state.deadline} />
+        }
+        if(this.state.status === "home")
+        {
+            return <Home/>
         }
     }
     render() {

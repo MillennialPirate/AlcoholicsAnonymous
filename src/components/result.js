@@ -3,6 +3,7 @@ import './Home.css';
 import {db} from '../firebase/firebase';
 import Home from './Home';
 import Happy from './happy.svg';
+import FileBase from 'react-file-base64';
 class Result extends React.Component {
     constructor(props) {
         super(props);
@@ -13,6 +14,7 @@ class Result extends React.Component {
             destination: "",
             deadline:"",
             pace: "",
+            dp: "",
         };
         this.onChangeInput = this.onChangeInput.bind(this);
         this.save = this.save.bind(this);
@@ -156,7 +158,7 @@ class Result extends React.Component {
             CurrentLevel: this.state.level,
             deadline : this.state.deadline,
             DestinationLevel: this.state.destination,
-            Pace: this.state.pace
+            Pace: this.state.pace,
           });
         window.alert("Account created! Please login again to follow the next steps");
         this.setState({status: "Home"});
@@ -181,7 +183,7 @@ class Result extends React.Component {
                     <div style={{paddingTop:"2%"}}></div>
                     <div class="container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"2%"}}></div>
-                        <h3>Congrats!! You have reached the green stage which indicates your discipline in life. Keep up the good work!! You need not take any of our plans.</h3>
+                        <h3>Congrats!! Yo are safe from alcohol addication. Have a nice day!</h3>
                         <button class = "button1" onClick ={(e) => {this.return(e)}}>Return</button>
                         <div style={{paddingTop:"2%"}}></div>
                     </div>
@@ -206,6 +208,7 @@ class Result extends React.Component {
                         <input type="date" name="deadline" onChange={(e)=>{this.onChangeInput(e)}}/>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
+                    
                     <button class = "button1" onClick={(e)=>{this.setState({destination:"Light"});this.save(e)}}>Start!</button>
                     
                     </div>
@@ -232,6 +235,7 @@ class Result extends React.Component {
                         <input type="date" name="deadline" onChange={(e)=>{this.onChangeInput(e)}}/>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
+                    
                     <button class = "button1" onClick={(e)=>{this.save(e)}}>Start!</button>
                     
                     </div>

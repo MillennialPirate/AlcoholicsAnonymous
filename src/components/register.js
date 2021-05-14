@@ -4,6 +4,7 @@ import Log from './register.png';
 import {auth} from '../firebase/firebase';
 import Login from './login';
 import First from './questions';
+import Home from './Home';
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +17,7 @@ class Register extends React.Component {
         this.onChangeInput = this.onChangeInput.bind(this);
         this.register = this.register.bind(this);
         this.changeLogin = this.changeLogin.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
     changeLogin(e)
     {
@@ -43,6 +45,11 @@ class Register extends React.Component {
               default: ////console.log("Hello");
             }
           });
+    }
+    goBack(e)
+    {
+        e.preventDefault();
+        this.setState({status: "home"});
     }
     onChangeInput(e)
     {
@@ -79,7 +86,7 @@ class Register extends React.Component {
                         </div>
                         <p class="mt-5 mb-3 ">Already have an account?<a href="#" onClick = {(e) => {this.changeLogin(e)}}>Click here!</a></p>
                         <button class="button1" type="submit" onClick = {(e)=>{this.register(e)}}>Sign up</button>
-                       
+                        <button class="button1" type="submit" onClick = {(e)=>{this.goBack(e)}}>Go Back</button>
                     </form>
                 </main>
                         </div>
@@ -94,6 +101,10 @@ class Register extends React.Component {
         if(this.state.status === "assess")
         {
             return <First uid = {this.state.uid}/>
+        }
+        if(this.state.status === "home")
+        {
+            return <Home/>
         }
     }
     render() {
