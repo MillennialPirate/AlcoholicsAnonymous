@@ -17,3 +17,10 @@ AlcoholicsAnonymous is an app built to make alcohol addicts realize the danger t
 
 ## Website 
 https://alcoholicsanonymous-ad7cf.web.app/
+
+## Want to contribute?
+
+1. Clone the repository
+2. cd into the directory using terminal 
+3. Run the command `npm install`
+4. Then run `npm start`
