@@ -522,3 +522,17 @@ background-image: url(https://ionicframework.com/img/getting-started/ionic-nativ
   margin: 20px;
 }
 } 
+.option{
+  width: 300px;
+  height: 50px;
+  border-radius: 5%;
+  border: none;
+}
+.option:hover{
+  background-color: black;
+  color: white;
+}
+.side{
+  width: 500px;
+  height: 500px;
+}

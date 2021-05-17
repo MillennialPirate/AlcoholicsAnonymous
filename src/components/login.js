@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Log from './login.png';
+import Log from './images/login.png';
 import {auth} from '../firebase/firebase';
 import {db} from '../firebase/firebase';
 import Register from './register';
@@ -43,7 +43,6 @@ class Login extends React.Component {
             
             const cityRef = db.collection(this.state.uid).doc('Information');
             const doc = await cityRef.get();
-            console.log(doc.data().CurrentLevel);
             this.setState({level: doc.data().CurrentLevel});
             this.setState({destination: doc.data().DestinationLevel});
             this.setState({pace : doc.data().Pace});
@@ -70,7 +69,6 @@ class Login extends React.Component {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value});
-        console.log(this.state);
     }
     changeRegister(e)
     {

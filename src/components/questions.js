@@ -1,10 +1,14 @@
 import React from 'react';
 import './Home.css';
+import Pic1 from './images/alcohol.svg';
 import Result from './result';
+import Pic2 from './images/units.svg';
+import Age from './images/age.svg';
+import Gender from './images/gender.svg';
+import Injury from './images/injury.svg';
 class Questions extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             uid: this.props.uid,
             status: "first",
@@ -19,68 +23,13 @@ class Questions extends React.Component {
             age:0,
             level:""
         };
-        
-        this.onChangeInput = this.onChangeInput.bind(this);
-
+        this.next3 = this.next3.bind(this);
+        this.next2 = this.next2.bind(this);
     }
-    onChangeInput(e)
+    next3(e)
     {
         e.preventDefault();
-        const name = e.target.name;
-        const value = e.target.id;
-        this.setState({[name]: value});
-        if(name === "answer1")
-        {
-            if(value === "a")
-            {
-                this.setState({frequency:4});
-            }
-            else if(value === "b")
-            {
-                this.setState({frequency: 2});
-            }
-            else if(value === "c")
-            {
-                this.setState({frequency: 1});
-            }
-            else 
-            {
-                this.setState({frequency:0});
-            }
-        }
-        if(name === "answer2")
-        {
-            if(value === "a1")
-            {
-                this.setState({units: 2});
-            }
-            else if(value === "b1")
-            {
-                this.setState({units: 4});
-            }
-            else if(value === "c1")
-            {
-                this.setState({units: 8});
-            }
-            else if(value === "d1")
-            {
-                this.setState({units: 10});
-            }
-        }
-        var x = this.state.frequency*this.state.units;
-        this.setState({totalUnits: x});
-        if(name === "answer3")
-        {
-            if(value === "a2")
-            {
-                this.setState({age: 25});
-            }
-            else 
-            {
-                this.setState({age:35});
-            }
-        }
-        if(this.state.age > 30)
+        if(this.state.age > 40)
         {
             if(this.state.totalUnits <= 15)
             {
@@ -110,8 +59,19 @@ class Questions extends React.Component {
                 this.setState({level: "High Risk"});
             }
         }
-        console.log(this.state.totalUnits);
+        ;
+        this.setState({status: "fourth"});
     }
+    next2(e)
+    {
+        e.preventDefault();
+        var x = this.state.frequency*this.state.units;
+        this.setState({totalUnits: x});
+
+        this.setState({status:"third"});
+    }
+
+    
     checkStatus() {
         if (this.state.status === "first") {
             return <div style={{ textAlign: "center" }}>
@@ -120,36 +80,28 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container"  >
-                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
-                    <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
-                        <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
+                <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
+                <div class = "row">
+                    <div class = "col-lg-6 col-md-12">
+                        <img src = {Pic1} class = "side"/>
+                    </div>
+                    <div class = "col-lg-6 col-md-12">
+                    
+                    <div class="container" >
+                        <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">How often do you have an alcoholic drink?</h2>
-                                <ul >
-                                    <li>
-                                        <input type="radio" name="answer1" id="a" class="answer" />
-                                        <label for="a" >Every week</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer1" id="b" class="answer" />
-                                        <label for="b" >Twice a month or more</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer1" id="c" class="answer" />
-                                        <label for="c" >Once a month or more</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="answer1" id="d" class="answer" />
-                                        <label for="c" >Never</label>
-                                    </li>
-                                </ul>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 4})}}>Every week</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 2})}}>Twice a month or more</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 1})}}>Once a month or more</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 0})}}>Never</button><br/><br/>
                             </div>
                             <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); this.setState({status:"second"})}}>Next</button>
                         </div>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
+                    </div>
+                </div>
                 </div>
             </div>
         }
@@ -161,33 +113,26 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
-                    <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
-                        <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
+                
+                    <div class="container" >
+                    <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
+                        <div class = "row">
+
+                            <div class = "col-lg-6 col-md-12">
+                            <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">How many units of alcohol do you drink in a typical day when you are drinking?</h2>
-                                <ul >
-                                    <li>
-                                        <input type="radio" name="answer2" id="a1" class="answer" />
-                                        <label for="a1" >1 to 3</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer2" id="b1" class="answer" />
-                                        <label for="b1" >3 to 6</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer2" id="c1" class="answer" />
-                                        <label for="c1" >6 to 9</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="answer2" id="d1" class="answer" />
-                                        <label for="d1" >Above 10</label>
-                                    </li>
-                                </ul>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({units: 2})}}>1 to 3</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({units: 4})}}>3 to 6</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({units: 8})}}>6 to 9</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({units: 10})}}>Above 10</button><br/><br/>
                             </div>
-                            <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); this.setState({status:"third"})}}>Next</button>
+                            <button id="submit" class="button4" onClick = {(e) => {this.next2(e)}}>Next</button>
+                        </div>
+                            </div>
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Pic2} class = "side"/>
+                            </div>
                         </div>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
@@ -202,33 +147,25 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
-                    <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
-                        <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
+                <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
+                    <div class="container" >
+                        <div class = "row">
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Age} class = "side"/>
+                            </div>
+                            <div class = "col-lg-6 col-md-12">
+
+                            <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">Enter your age group:</h2>
-                                <ul >
-                                    <li>
-                                        <input type="radio" name="answer3" id="a2" class="answer" />
-                                        <label for="a2" >18-30</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer3" id="b2" class="answer" />
-                                        <label for="b2" >30-50</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer3" id="c2" class="answer" />
-                                        <label for="c2" >50-70</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="answer3" id="d2" class="answer" />
-                                        <label for="d2" >70+</label>
-                                    </li>
-                                </ul>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({age: 25}); }}>18 to 30</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({age: 25})}}>30 to 50</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({age: 40})}}>50 to 70</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({age: 40})}}>Above 70</button><br/><br/>
                             </div>
-                            <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); this.setState({status:"fourth"})}}>Next</button>
+                            <button id="submit" class="button4" onClick = {(e) => {this.next3(e)}}>Next</button>
+                        </div>
+                            </div>
                         </div>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
@@ -243,29 +180,23 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                    <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
-                    <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
-                        <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
+                <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
+                    <div class="container" >
+                        <div class = "row">
+                            <div class = "col-lg-6 col-md-12">
+                            <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">Enter your gender</h2>
-                                <ul >
-                                    <li>
-                                        <input type="radio" name="answer4" id="a" class="answer" />
-                                        <label for="a3" >Male</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer4" id="b" class="answer" />
-                                        <label for="b3" >Female</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer4" id="c" class="answer" />
-                                        <label for="c3" >Other</label>
-                                    </li>
-                                </ul>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Male</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Female</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Other</button><br/><br/>
                             </div>
                             <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); this.setState({status:"fifth"})}}>Next</button>
+                        </div>
+                            </div>
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Gender} class = "side"/>
+                            </div>
                         </div>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>
@@ -280,33 +211,24 @@ class Questions extends React.Component {
                 </nav>
                 <div style={{ paddingTop: "2%" }}></div>
                 <div class="container" >
-                <h1>Answer the following questionnaire (Please double click the options for recording correct answers!)</h1>
-                    <div class="container" onChange = {(e) => {this.onChangeInput(e)}}>
-                        <div class="quiz-container" id="quiz" style={{width:"75%", margin:"auto"}}>
+                <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
+                    <div class="container" >
+                        <div class = "row">
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Injury} class = "side"/>
+                            </div>
+                            <div class = "col-lg-6 col-md-12">
+                            <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
                                 <h2 id="question">Have you or somebody else been injured as a result of your drinking?</h2>
-                                <ul >
-                                    <li>
-                                        <input type="radio" name="answer5" id="a" class="answer" />
-                                        <label for="a4" >Never</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer5" id="b" class="answer" />
-                                        <label for="b4" >Years before</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" name="answer5" id="c" class="answer" />
-                                        <label for="c4" >Months before</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="answer5" id="d" class="answer" />
-                                        <label for="d4" >Weeks before</label>
-                                    </li>
-                                </ul>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Never</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Years before</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Months before</button><br/><br/>
+                                <button class = "option" onClick = {(e) => {e.preventDefault(); }}>Weeks before</button><br/><br/>
                             </div>
-                            <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); console.log(this.state.level); this.setState({status:"results"})}}>Submit</button>
+                            <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); ; this.setState({status:"results"})}}>Submit</button>
+                        </div>
+                            </div>
                         </div>
                     </div>
                     <div style={{paddingBottom:"5%"}}></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Log from './register.png';
+import Log from './images/register.png';
 import {auth} from '../firebase/firebase';
 import Login from './login';
 import First from './questions';
@@ -57,7 +57,6 @@ class Register extends React.Component {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value});
-        console.log(this.state);
     }
     checkStatus() {
         if (this.state.status === "register") {

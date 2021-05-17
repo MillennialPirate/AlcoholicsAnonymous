@@ -2,8 +2,10 @@ import React from 'react';
 import './Home.css';
 import {db} from '../firebase/firebase';
 import Home from './Home';
-import Happy from './happy.svg';
-import FileBase from 'react-file-base64';
+import Happy from './images/happy.svg';
+import Risk from './images/high risk.svg';
+import Medium from './images/medium.svg';
+import Congrats from './images/congrats.svg';
 class Result extends React.Component {
     constructor(props) {
         super(props);
@@ -28,14 +30,11 @@ class Result extends React.Component {
     async save(e)
     {
         e.preventDefault();
-        console.log("Clicked");
         
         const today = new Date();
         const dead = new Date(this.state.deadline);
         const dif1 = dead.getTime() - today.getTime();
         const dif = Math.round(dif1/(1000*3600*24));
-        console.log(dif);
-        console.log(this.state);
         var x = "Slow";
         if(this.state.level === "Going good")
         {
@@ -71,7 +70,6 @@ class Result extends React.Component {
             }
             else 
             {
-                console.log("Hello");
                 if(dif > 50)
                 {
                     x = "Slow";
@@ -91,13 +89,10 @@ class Result extends React.Component {
                 }
             }
         }
-        console.log(x);
         this.setState({pace: x});
         this.state.pace = x;
-        console.log(this.state.pace);
         if(this.state.pace === "Slow")
         {
-            console.log("Slow");
             const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
               });
@@ -124,7 +119,6 @@ class Result extends React.Component {
         }
         else if(this.state.pace === "Medium")
         {
-            console.log("Medium");
             const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
               });
@@ -143,7 +137,6 @@ class Result extends React.Component {
         }
         else 
         {
-            console.log("Fast");
             const res1 = await db.collection(this.state.uid).doc('Activities').collection('activities').doc('1').set({
                 Task1: "Go for morning walks everyday",
               });
@@ -169,7 +162,6 @@ class Result extends React.Component {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value});
-        console.log(this.state);
     }
     checkStatus() {
         if (this.state.status === "result") {
@@ -183,7 +175,7 @@ class Result extends React.Component {
                     <div style={{paddingTop:"2%"}}></div>
                     <div class="container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"2%"}}></div>
-                        <h3>Congrats!! Yo are safe from alcohol addication. Have a nice day!</h3>
+                        <h3>Congrats!! You are safe from alcohol addication. Have a nice day!</h3>
                         <button class = "button1" onClick ={(e) => {this.return(e)}}>Return</button>
                         <div style={{paddingTop:"2%"}}></div>
                     </div>
@@ -196,7 +188,13 @@ class Result extends React.Component {
                     </nav>
                     <h1 style={{ color: "#EAC435" }}>{this.state.level}</h1>
                     <div style={{paddingTop:"5%"}}></div>
-                    <div class = "container" style={{background:"#f1f1f1"}}>
+                    <div class = "container">
+                        <div class ="row">
+                            <div class = "col-lg-6 col-md-6 col-sm-12">
+                                <img src = {Medium} class ="side"/>
+                            </div>
+                            <div class = "col-lg-6 col-md-6 col-sm-12">
+                            <div class = "container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"5%"}}></div>
                     <div class = "container">
                         <h1>Which level do you want to reach?</h1>
@@ -212,6 +210,9 @@ class Result extends React.Component {
                     <button class = "button1" onClick={(e)=>{this.setState({destination:"Light"});this.save(e)}}>Start!</button>
                     
                     </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
             if (this.state.level === "High Risk") {
@@ -221,7 +222,13 @@ class Result extends React.Component {
                     </nav>
                     <h1 style={{ color: "red" }}>{this.state.level}</h1>
                     <div style={{paddingTop:"5%"}}></div>
-                    <div class = "container" style={{background:"#f1f1f1"}}>
+                    <div class = "container">
+                        <div class = "row">
+                            <div class = "col-lg-6 col-md-6 col-sm-12">
+                                <img src = {Risk} class = "side"/>
+                            </div>
+                            <div class = "col-lg-6 col-md-6 col-sm-12">
+                            <div class = "container" style={{background:"#f1f1f1"}}>
                         <div style={{paddingTop:"5%"}}></div>
                     <div class = "container">
                         <h1>Which level do you want to reach?</h1>
@@ -238,6 +245,9 @@ class Result extends React.Component {
                     
                     <button class = "button1" onClick={(e)=>{this.save(e)}}>Start!</button>
                     
+                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }

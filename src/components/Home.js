@@ -1,7 +1,9 @@
 import React from 'react';
 import './Home.css';
-import Img1 from './image1.png';
+import Img1 from './images/image1.png';
 import Login from './register';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,6 @@ class Home extends React.Component {
   changeLogin(e)
   {
     e.preventDefault();
-    console.log("Clicked");
     this.setState({status: "login"});
   }
   checkStatus() {
@@ -49,7 +50,7 @@ class Home extends React.Component {
                     <div class="col-md-8">
                       <div class="card-body">
                         <p class="card-text" style={{ fontSize: "1.5rem" }}>Start a disciplined life with ease!</p>
-                        <button class="button1" >Go!</button>
+                       
                       </div>
                     </div>
                   </div>
@@ -64,7 +65,7 @@ class Home extends React.Component {
                     <div class="col-md-8">
                       <div class="card-body">
                         <p class="card-text" style={{ fontSize: "1.5rem" }}>Keep track of your daily activities!</p>
-                        <button class="button1">Go!</button>
+
                       </div>
                     </div>
                   </div>

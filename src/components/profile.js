@@ -2,9 +2,9 @@ import React from 'react';
 import './Home.css';
 import { db } from '../firebase/firebase';
 import Info from './Info';
-import Risk from './high risk.svg';
-import Medium from './medium.svg';
-import Congrats from './congrats.svg';
+import Risk from './images/high risk.svg';
+import Medium from './images/medium.svg';
+import Congrats from './images/congrats.svg';
 import Dash from './dashboard';
 import Profile from './profile';
 import Home from './Home';
@@ -26,7 +26,6 @@ class Result extends React.Component {
             totalTasks: 0,
             count: 0,
         };
-        console.log(this.state.uid)
         this.proceed = this.proceed.bind(this);
         this.view = this.view.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
@@ -58,7 +57,7 @@ class Result extends React.Component {
         var x = this.state.count;
         this.setState({count: x+1});
         const res1 = await db.collection(this.state.uid).doc('Dashboard').collection('Dates').doc(String(docId)).set({count: x+1});
-        console.log(id);
+  
         for (var i = 0; i < this.state.tasks.length; i++) {
             if (this.state.tasks[i].id === id) {
                 this.state.tasks.splice(i, 1);
@@ -76,27 +75,15 @@ class Result extends React.Component {
     }
     view(e, task) {
         e.preventDefault();
-        console.log(task);
         this.setState({ task: task });
         this.setState({ status: "view more" });
     }
     proceed(e) {
         e.preventDefault();
-        console.log(this.state.rate);
         this.setState({ status: "view" });
     }
     async componentDidMount() {
-        console.log(this.state.uid);
-        console.log(this.state);
-        if (this.state.pace === "Slow") {
-            console.log("Slow");
-        }
-        else if (this.state.pace === "Medium") {
-            console.log("Medium");
-        }
-        else if (this.state.pace === "Fast") {
-            console.log("Fast");
-        }
+        
         var total = 0;
         if (this.state.pace === "Slow") {
             total = 7;
@@ -107,20 +94,15 @@ class Result extends React.Component {
         else {
             total = 3;
         }
-        console.log(total);
         this.setState({ totalTasks: total });
-
-        console.log(this.state.totalTasks);
         const citiesRef = db.collection(this.state.uid).doc('Activities').collection('activities');
         const snapshot = await citiesRef.get();
         var count = snapshot.size;
-        console.log(count);
         this.setState({ completedTask: count });
         var rate1 = parseInt(((count) / (total)) * 100);
         this.setState({ rate: 100 - rate1 });
         snapshot.forEach(doc => {
             var pace = "Slow";
-            console.log(doc.id, '=>', doc.data());
             if (doc.id === '1') {
                 var data = {
                     id: 1,
@@ -171,7 +153,6 @@ class Result extends React.Component {
                 this.state.tasks.push(data);
             }
         });
-        console.log(this.state.tasks);
     }
     goBack(e)
     {
@@ -401,7 +382,7 @@ class Result extends React.Component {
                         <div style={{ paddingLeft: "2%" }}><a class="navbar-brand" href="#"><div style={{ fontSize: "1.5rem", color: "black", fontWeight: "bolder" }}><span style={{ color: "#00308F" }}>Alcoholics</span>Anonymous</div></a></div><button class = "button1" onClick = {(e) => {e.preventDefault(); this.setState({status: "back"})}}>Go Back</button>
                     </nav>
                     {
-                        this.state.rate == 100? <div class ="row"><div class = "col-lg-6 col-md-12"><img src = {Congrats} style={{width:"500px", height:"500px"}}/></div><div class = "col-lg-6 col-md-12"><div style={{paddingTop:"15%"}}><h1 style={{color:"green"}}>Congrats for finishing all the tasks</h1><h5>For further updates subscribe to our mail letter!</h5><button class = "button1">subscribe</button></div></div></div>:  <div><h1 style={{ color: "#EAC435" }}>{this.state.level}</h1><h2 style={{ textAlign: "center" }}>Practice this for next few days till {this.state.deadline}!!</h2>
+                        this.state.rate == 100? <div class ="row"><div class = "col-lg-6 col-md-12"><img src = {Congrats} style={{width:"500px", height:"500px"}}/></div><div class = "col-lg-6 col-md-12"><div style={{paddingTop:"15%"}}><h1 style={{color:"green"}}>Congrats for finishing all the tasks</h1><h5>For further updates subscribe to our mail letter!</h5><button class = "button1">subscribe</button></div></div></div>:  <div><h1 style={{ color: "red" }}>{this.state.level}</h1><h2 style={{ textAlign: "center" }}>Practice this for next few days till {this.state.deadline}!!</h2>
                         <h2 style={{ textAlign: "center" }}>Current Pace: {this.state.rate}%</h2></div>
                     }
                     <div style={{ textAlign: "center" }}>
