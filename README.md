@@ -24,3 +24,9 @@ https://alcoholicsanonymous-ad7cf.web.app/
 2. cd into the directory using terminal 
 3. Run the command `npm install`
 4. Then run `npm start`
+
+## Project done by - 
+
+Siddharth.S.Chandran 
+VIT Chennai
+18BCE1003
