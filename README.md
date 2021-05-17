@@ -27,6 +27,6 @@ https://alcoholicsanonymous-ad7cf.web.app/
 
 ## Project done by - 
 
-Siddharth.S.Chandran 
-VIT Chennai
+Siddharth.S.Chandran,
+VIT Chennai,
 18BCE1003
