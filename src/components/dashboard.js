@@ -73,8 +73,8 @@ class Dashboard extends React.Component
                   angleLines: {
                       display: false
                   },
-                  suggestedMin: 50,
-                  suggestedMax: 100
+                  suggestedMin: 0,
+                  suggestedMax: 10
               }
           }
       }}

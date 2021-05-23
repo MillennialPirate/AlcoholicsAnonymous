@@ -118,6 +118,10 @@ class Questions extends React.Component {
                     <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
                         <div class = "row">
 
+                            
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Pic2} class = "side"/>
+                            </div>
                             <div class = "col-lg-6 col-md-12">
                             <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
@@ -129,9 +133,6 @@ class Questions extends React.Component {
                             </div>
                             <button id="submit" class="button4" onClick = {(e) => {this.next2(e)}}>Next</button>
                         </div>
-                            </div>
-                            <div class = "col-lg-6 col-md-12">
-                                <img src = {Pic2} class = "side"/>
                             </div>
                         </div>
                     </div>
@@ -183,6 +184,10 @@ class Questions extends React.Component {
                 <h1>Help us know you more!</h1><div style={{paddingTop:"2%"}}></div>
                     <div class="container" >
                         <div class = "row">
+                            
+                            <div class = "col-lg-6 col-md-12">
+                                <img src = {Gender} class = "side"/>
+                            </div>
                             <div class = "col-lg-6 col-md-12">
                             <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
                             <div class="quiz-header">
@@ -193,9 +198,6 @@ class Questions extends React.Component {
                             </div>
                             <button id="submit" class="button4" onClick = {(e) => {e.preventDefault(); this.setState({status:"fifth"})}}>Next</button>
                         </div>
-                            </div>
-                            <div class = "col-lg-6 col-md-12">
-                                <img src = {Gender} class = "side"/>
                             </div>
                         </div>
                     </div>
