@@ -84,7 +84,7 @@ class Register extends React.Component {
                             <label >Password</label>
                         </div>
                         <p class="mt-5 mb-3 ">Already have an account?<a href="#" onClick = {(e) => {this.changeLogin(e)}}>Click here!</a></p>
-                        <button class="button1" type="submit" onClick = {(e)=>{this.register(e)}}>Sign up</button>
+                        <button class="button1" type="submit" onClick = {(e)=>{this.register(e)}}>Sign up</button>{ "  "}
                         <button class="button1" type="submit" onClick = {(e)=>{this.goBack(e)}}>Go Back</button>
                     </form>
                 </main>

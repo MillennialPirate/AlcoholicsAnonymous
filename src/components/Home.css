@@ -268,6 +268,7 @@ border-radius: 30px;
   background: #00308F;
   color:white;
   border-radius: 5%;
+  border: none;
 }
 /* REMOVE THIS, USE YOUR OWN  */
 html,body {
@@ -461,15 +462,19 @@ ul li label {
   font-size: 1.1rem;
   font-family: inherit;
   padding: 1.3em;
+  border:none;
 }
 
 button:hover {
-  background-color: #732d91;
+  background-color: #3F84E5;
+  border:none;
+  color:white;
 }
 
 button:focus {
   outline: none;
-  background-color: #5e3370;
+  border:none;
+  background-color: #3F84E5;
 }
 .card1{
   border-radius: 4px;
@@ -515,6 +520,13 @@ background-image: url(https://ionicframework.com/img/getting-started/ionic-nativ
     background-repeat: no-repeat;
   background-position: right;
   background-size: 80px;
+}
+.buttonLink{
+  height:60px;
+  width: 60px;
+  border-radius: 50%;
+  border:none;
+  background-color: white;
 }
 
 @media(max-width: 990px){

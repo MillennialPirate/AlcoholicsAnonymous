@@ -126,67 +126,17 @@ class Home extends React.Component {
         </div>
         
 <div class="footer">
-  <div class="contain">
-  <div class="col">
-    <h1>Company</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Products</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Accounts</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Resources</h1>
-    <ul>
-      <li>Webmail</li>
-      <li>Redeem code</li>
-      <li>WHOIS lookup</li>
-      <li>Site map</li>
-      <li>Web templates</li>
-      <li>Email templates</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Support</h1>
-    <ul>
-      <li>Contact us</li>
-      <li>Web chat</li>
-      <li>Open ticket</li>
-    </ul>
-  </div>
-  <div class="col social">
-    <h1>Social</h1>
-    <ul>
-      <li><img src="https://svgshare.com/i/5fq.svg" style={{width: "32px"}}/></li>
-      <li><img src="https://svgshare.com/i/5eA.svg" style={{width: "32px"}}/></li>
-      <li><img src="https://svgshare.com/i/5f_.svg" style={{width: "32px"}}/></li>
-    </ul>
-  </div>
+  <div class="contain" style={{textAlign:"center"}}>
 <div class="clearfix" style={{paddingTop:"2%",paddingBottom:"5%", textAlign:"center"}}>
-<h1 style={{color:"white", fontWeight:"bolder"}}><span style={{ color: "#00308F" }}>Alcoholics</span>Anonymous</h1>
+
 </div>
+<div style={{paddingBottom: "5%"}}>
+<button class = "buttonLink"><a href = "https://github.com/DiligentCoder-20022001/AlcoholicsAnonymous" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/github.png"/></a></button>{ "   "}
+<button class = "buttonLink"><a href = "https://siddharthschandran44.medium.com/" target="_blank"><img src="https://img.icons8.com/ios-filled/48/000000/medium-logo.png"/></a></button>{ "   "}
+<button class = "buttonLink"><a href = "https://www.linkedin.com/in/siddharth-s-chandran-1b96311b9/" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/></a></button>{ "   "}
+<button class = "buttonLink"><a href = "mailto:siddharthschandran45@gmail.com" target="_blank"><img src="https://img.icons8.com/color/48/000000/gmail.png"/></a></button>{ "   "}
+</div>
+<h1 style={{color:"white", fontWeight:"bolder"}}><span style={{ color: "#00308F" }}>Alcoholics</span>Anonymous</h1>
 </div>
 </div>
       </div>

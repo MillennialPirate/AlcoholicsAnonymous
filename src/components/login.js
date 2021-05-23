@@ -103,7 +103,7 @@ class Login extends React.Component {
                             <label for="floatingPassword">Password</label>
                         </div>
                         <p class="mt-5 mb-3 ">Don't have an account yet?<a href="#" onClick = {(e) => {this.changeRegister(e)}}>Click here!</a></p>
-                        <button class="button1" type="submit" onClick = {(e)=>{this.login(e)}}>Sign in</button>
+                        <button class="button1" type="submit" onClick = {(e)=>{this.login(e)}}>Sign in</button>{ "  "}
                         <button class="button1" type="submit" onClick = {(e)=>{this.goBack(e)}}>Go Back!</button>
                     </form>
                 </main>
