@@ -221,7 +221,7 @@ class Result extends React.Component {
                         <div class = "col-lg-6">
                         <div style={{paddingTop:"2%"}}></div>
                     <h3>View your rate:</h3>
-                    <div style={{width:"500px", margin:"auto", paddingTop:"2%"}}>
+                    <div style={{width:"500px", margin:"auto", paddingTop:"2%", textAlign:"center"}}>
                         <Dash uid = {this.state.uid}/>
                     </div>
                     {

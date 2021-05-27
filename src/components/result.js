@@ -66,7 +66,7 @@ class Result extends React.Component {
             else 
             {
                 window.alert("Please select a gap of 21 days");
-
+                this.setState({status: "result"});
                 return;
             }
         }
@@ -93,7 +93,7 @@ class Result extends React.Component {
                 else 
                 {
                     window.alert("Please select a gap of 21 days");
-                    this.setState({status:"again"});
+                    this.setState({status: "result"});
                     return;
                 }
             }

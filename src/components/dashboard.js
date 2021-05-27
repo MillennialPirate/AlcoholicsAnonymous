@@ -32,7 +32,7 @@ class Dashboard extends React.Component
         }
         if(this.state.status === "loaded")
         {
-            return <h1><Radar
+            return <h1><Radar style={{textAlign:"center"}}
         data={{
           labels: this.state.labels,
           datasets: [
@@ -74,7 +74,7 @@ class Dashboard extends React.Component
                       display: false
                   },
                   suggestedMin: 0,
-                  suggestedMax: 10
+                  suggestedMax: 7
               }
           }
       }}

@@ -88,8 +88,8 @@ class Questions extends React.Component {
                     <div class = "col-lg-6 col-md-12">
                     
                     <div class="container" >
-                        <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto"}}>
-                            <div class="quiz-header">
+                        <div class="quiz-container" id="quiz" style={{width:"100%", margin:"auto", textAlign:"center"}}>
+                            <div class="quiz-header" >
                                 <h2 id="question">How often do you have an alcoholic drink?</h2>
                                 <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 4})}}>Every week</button><br/><br/>
                                 <button class = "option" onClick = {(e) => {e.preventDefault(); this.setState({frequency: 2})}}>Twice a month or more</button><br/><br/>
